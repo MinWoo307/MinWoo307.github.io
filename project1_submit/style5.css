@@ -1,0 +1,470 @@
+/* 기본 설정 */
+* {
+  max-width: 1920px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+body {
+  color: black;
+  font-size: 1.1rem;
+}
+.wrap {
+  max-width: 1513px;
+  margin: auto;
+}
+.wrapsm {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* 최대 넓이값 1920px
+   .wrap 값1513px margin auto
+   남은 양쪽 여백은 407
+   한쪽은 203.5
+   도형 > 글자 여백은 도형 기준으로 top 70
+   도형간 여백은 top or bottom 160px
+*/
+
+/* 원화단위 쓰기 &#8361; */
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2.5rem 0; /* Modified: 40px → 2.5rem */
+}
+.logo {
+  width: 3.125rem;
+  margin: 0 2.5rem;
+} /* Modified: 50px → 3.125rem, 40px → 2.5rem */
+
+nav ul {
+  width: max-content;
+  margin: 0 20rem;
+}
+nav ul li {
+  display: inline;
+  margin: 0 2.5rem;
+} /* Modified: 40px → 2.5rem */
+nav ul li a {
+  color: white;
+}
+.main {
+  position: absolute;
+  z-index: -1;
+  background: url(img/arpod_banner.png) no-repeat;
+  width: 120rem;
+  height: 80rem;
+  top: -10rem;
+  background-size: contain;
+  border-radius: 0 0 30px 30px;
+}
+.main2 {
+  width: 120rem;
+  height: 70rem;
+}
+
+.bigsub {
+  margin: auto;
+  margin-top: 12.5rem; /* Modified: 200px → 12.5rem */
+}
+.textbox1,
+.titlebox,
+.titleboxright {
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+.titleboxsm,
+.titlebox2,
+.titleboxrightsm {
+  font-size: 1.5rem;
+}
+
+.titlebox2 {
+  display: inline-block;
+  margin: 5rem 10rem 5rem 3rem;
+  border: 1px solid transparent;
+}
+
+.sub {
+  height: 32.75rem; /* Approximation for 524px */
+  background: url(img/s10-case-unselect.jfif);
+  background-size: cover;
+  border-radius: 1.5625rem; /* Modified: 25px → 1.5625rem */
+  margin-top: 4.375rem; /* Modified: 70px → 4.375rem */
+}
+.subtext {
+  text-align: center;
+  align-items: center;
+}
+
+.bg1 {
+  background: url(img/bgg4.png) no-repeat;
+  background-position: center -450px;
+}
+
+/* biglineup */
+.biglineup {
+  max-width: 1513px;
+  height: max-content;
+  margin: auto;
+  position: relative;
+  margin-top: 18.75rem; /* Modified: 300px → 18.75rem */
+  margin-bottom: 50rem; /* Modified: 800px → 50rem */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.biglineup > .titlebox,
+.biglineup > .detail-text {
+  margin-right: 9.5rem;
+} /* Modified: 40px → 2.5rem */
+
+.lineup {
+  width: max-content;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  gap: 5.125rem; /* Modified: 50px → 3.125rem */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  right: 0;
+  z-index: 2;
+}
+.lineupbox {
+  width: 23.75rem; /* Modified: 380px → 23.75rem */
+  height: 23.75rem; /* Modified: 380px → 23.75rem */
+  border-radius: 1.875rem; /* Modified: 30px → 1.875rem */
+  position: relative;
+  background: white;
+  box-shadow: 0.125rem 0.125rem 2.5rem rgb(202, 202, 202); /* Modified: 2px → 0.125rem, 40px → 2.5rem */
+  margin-top: 9.375rem; /* Modified: 150px → 9.375rem */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.lineup p {
+  position: relative;
+  top: 30%;
+  line-height: 50px;
+}
+.lineupbox .bolder {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.lineupbox img {
+  position: absolute;
+  left: 42px;
+  top: 200px;
+}
+
+.biglineup2 {
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  margin-left: 18.71875rem; /* Modified: 203.5px → 12.71875rem */
+  margin-bottom: 10rem; /* Modified: 160px → 10rem */
+}
+.titleboxsm {
+  margin-bottom: 4.375rem;
+} /* Modified: 70px → 4.375rem */
+.lineup2 {
+  flex-grow: 1;
+
+  margin-right: 15rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0 1.25rem; /* Modified: 20px → 1.25rem */
+}
+.lineup2 h1 {
+  margin-top: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+.lineupp2 {
+  font-size: 1rem;
+}
+
+.line-sm2 {
+  margin-left: 6.5625rem;
+} /* Modified: 105px → 6.5625rem */
+.line-sm2 img {
+  width: 14.0625rem; /* Modified: 225px → 14.0625rem */
+  height: 20.125rem; /* Modified: 322px → 20.125rem */
+}
+
+/* boxgroup */
+.boxgroup {
+  width: 100%;
+}
+.roundbox1,
+.roundbox2 {
+  height: 27.25rem; /* Modified: 436px → 27.25rem */
+  border-radius: 12.5rem; /* Modified: 200px → 12.5rem */
+  margin-bottom: 8.75rem; /* Modified: 140px → 8.75rem */
+  background-size: 80%;
+  background-position: center;
+}
+.roundbox1 {
+  background: url(img/image.png);
+  background-size: cover;
+}
+.roundbox2 {
+  background: url(img/poses.jpg);
+}
+.boxgrouptext {
+  font-size: 2rem;
+  margin-bottom: 10.625rem; /* Modified: 170px → 10.625rem */
+  margin-left: 12.71875rem; /* Modified: 203.5px → 12.71875rem */
+}
+
+.boxgroup2 {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(255, 255, 255);
+  margin-bottom: 28.125rem; /* Modified: 450px → 28.125rem */
+}
+.boxgroupright,
+.boxgroupleft {
+  width: 45%;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+}
+.boxgroupright {
+  margin-right: 3.125rem;
+} /* Modified: 50px → 3.125rem */
+.boxgroupleft {
+  margin-left: 3.125rem;
+} /* Modified: 50px → 3.125rem */
+
+/* 이미지 컨테이너 */
+.upright {
+  /* Modified: 30px → 1.875rem */
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 43.75rem; /* Modified: 700px → 43.75rem */
+}
+.bottomleft {
+  width: 100%;
+  height: 43.75rem;
+  margin-bottom: 2rem;
+} /* Modified: 700px → 43.75rem */
+.upleft {
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 63.75rem; /* Modified: 1020px → 63.75rem */
+  overflow: hidden;
+  /* Modified: 30px → 1.875rem */
+}
+.bottomright {
+  width: 100%;
+  height: 63.75rem;
+  margin-bottom: 2rem;
+} /* Modified: 1020px → 63.75rem */
+.upright img,
+.upleft img,
+.bottomleft img,
+.bottomright img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* biglineup3 관련 (있다면) */
+.lineup3 {
+  margin: -5rem;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  gap: 3.125rem; /* Modified: 50px → 3.125rem */
+}
+.lineupbox3 {
+  width: 20.625rem; /* Modified: 330px → 20.625rem */
+  height: 28.125rem; /* Modified: 450px → 28.125rem */
+  background: url(img/francered.png);
+  background-size: cover;
+  border-radius: 10.3125rem; /* Modified: 165px → 10.3125rem */
+}
+.lineupbox3 p {
+  text-align: center;
+  color: white;
+  position: relative;
+  top: 5rem;
+}
+.box3text {
+  font-size: 2rem;
+  top: 5rem;
+  color: white;
+  font-weight: 700;
+}
+
+.lineupbox3-2,
+.lineupbox3-3 {
+  width: 20.625rem;
+  height: 28.125rem;
+  border-radius: 1.875rem; /* Modified: 30px → 1.875rem */
+  background: white;
+  box-shadow: 0.125rem 0.125rem 2.5rem rgb(179, 179, 179);
+}
+
+.biglineup4 {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 22rem;
+  text-align: center;
+  justify-content: center;
+}
+.lineuptext {
+  margin: 0 auto;
+  margin-top: 40rem;
+  padding-left: 3rem;
+  font-size: 2rem;
+}
+.lineuptext-1 {
+  font-weight: 700;
+}
+
+.lineup4 {
+  flex-wrap: wrap;
+  height: 57rem;
+  gap: 3.82rem;
+  margin-top: 10rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.lineup4-1,
+.lineup4-2,
+.lineup4-3,
+.lineup4-4 {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px rgb(228, 228, 228);
+  width: 19rem;
+  height: 40rem;
+}
+
+.lineup4-2,
+.lineup4-4 {
+  align-self: flex-end;
+}
+
+/* footer */
+footer {
+  background: rgb(0, 0, 0);
+  height: 18.75rem;
+} /* Modified: 300px → 18.75rem */
+.foot {
+  padding-top: 5.0625rem; /* Modified: 80.5px → 5.0625rem */
+  margin: 0 12.71875rem; /* Modified: 203.5px → 12.71875rem */
+  color: white;
+}
+
+/* Media Query for mobile (600px 이하) */
+@media (max-width: 600px) {
+  .wrap {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  .biglineup {
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    margin-top: 6.25rem; /* Modified: 100px → 6.25rem */
+    margin-bottom: 22.25rem; /* Modified: 100px → 6.25rem */
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .biglineup > .titlebox,
+  .biglineup > .detail-text {
+    margin: 0 0 0.625rem; /* Modified: 10px → 0.625rem */
+    text-align: center;
+  }
+  .lineup {
+    position: static;
+    margin: auto;
+    flex-direction: column;
+    gap: 1.25rem; /* Modified: 20px → 1.25rem */
+    align-items: center;
+  }
+  .lineupbox {
+    width: 80%;
+    max-width: 18rem; /* Modified: 300px → 18rem */
+    height: auto;
+    aspect-ratio: 1/1;
+    margin-left: 25.6rem;
+    min-width: 20rem;
+  }
+  .biglineup2 {
+    flex-direction: column;
+    margin-left: 0;
+    margin-bottom: 6.25rem; /* Modified: 20px → 1.25rem */
+    justify-content: center;
+    align-items: center;
+  }
+  .lineup2 {
+    margin-top: 5rem;
+    margin-right: 0;
+    margin-bottom: 1.25rem; /* Modified: 20px → 1.25rem */
+    justify-content: center;
+  }
+  .lineup3 {
+    margin-top: 10rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.25rem; /* Modified: 20px → 1.25rem */
+  }
+  .lineupbox3,
+  .lineupbox3-2,
+  .lineupbox3-3 {
+    width: 50rem;
+
+    height: 30rem;
+    margin: 0 0; /* Modified: 10px → 0.625rem */
+  }
+  .boxgroup2 {
+    flex-direction: column;
+  }
+  .boxgroupleft,
+  .boxgroupright {
+    padding-top: 1px;
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+  }
+  .upleft,
+  .upright,
+  .bottomleft,
+  .bottomright {
+    line-height: 0;
+    display: block;
+    margin-bottom: 4rem;
+    height: auto;
+    max-height: 18rem; /* Modified: 300px → 18rem */
+  }
+
+  .upleft {
+    margin-bottom: 1rem;
+  }
+  .upright {
+    margin-bottom: 4rem;
+  }
+}
