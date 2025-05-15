@@ -1,0 +1,937 @@
+/* styles.css */
+
+* {
+  max-width: 1920px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+body {
+  color: black;
+  font-size: 1.1rem;
+}
+.wrap {
+  max-width: 1080px;
+  margin: auto;
+}
+.wrapsm {
+  max-width: 1220px;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  font-family: sans-serif;
+}
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ기본 설정 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+.high-bar{
+  width: 1920px;
+  height: 30px;
+  background-color: #272727;
+}
+
+
+html,
+body {
+  position: relative;
+  height: 1080px;
+}
+
+body {
+  background: #ffffff;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+.swiper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.one,
+.two,
+.three,
+.four {
+  position: relative;
+  top: 250px;
+  background: url(newbanner.JPG) no-repeat;
+  background-size: contain;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--swiper-theme-color);
+}
+
+.autoplay-progress svg {
+  --progress: 0;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4px;
+  stroke: var(--swiper-theme-color);
+  fill: none;
+  stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+  stroke-dasharray: 125.6;
+  transform: rotate(-90deg);
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 메인 메뉴 ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+.top {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 35px;
+  margin-bottom: 50px;
+}
+.head .logo {
+  width: 200px;
+  margin-bottom: 10px;
+}
+.head .logo img {
+  background: url(logo2-2.png);
+  width: 200px;
+}
+.logo {
+  border-radius: 50px;
+}
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ탑 메뉴 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ nav ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+.mainpage {
+  height: 1080px;
+  background: blue;
+}
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ mainpage ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+.icon {
+  height: 94;
+  background: palegreen;
+  display: flex;
+  justify-content: center;
+}
+.icon ul li {
+  display: inline-block;
+  margin: 0 55px;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ icon, 베스트 하기전 아이콘 부분만 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+#container {
+  background: red;
+}
+.tab li {
+  display: inline-block;
+}
+.tab-content {
+  height: 483px;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ non박스 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 아이콘 이동탭 박스 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+.container {
+  width: 1080px;
+  margin: 50px auto;
+}
+
+.tab-titles {
+  display: flex;
+  width: 1080px;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.tab-title {
+  padding: 15px 20px;
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+
+  transition: all 0.3s ease;
+}
+
+.tab-title.active {
+  color: white;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-pane {
+  display: none;
+  padding: 10px;
+  border-top: 1px solid #b8b8b8;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.content-item1 {
+  height: 483px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.tcl,
+.tcr {
+  width: 270px;
+  height: 416px;
+  background-color: #ccc;
+}
+
+.tes {
+  width: 294px;
+  height: 455px;
+  background-color: #ffffff;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 콘테이너 탭 기본 베이스 ↑ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+
+
+
+.slider-wrap {
+  position: relative;
+  width: 100%;
+  height: 600px; /* 원하는 높이 */
+  overflow: hidden;
+}
+
+.swiper.mySwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+/* 오버레이 박스 */
+.overlay-boxes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  gap: 20px;
+}
+
+.overlay-boxes .box {
+  width: 120px;
+  height: 180px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 스위퍼 오버레이  ↑ ㅡㅡㅡㅡㅡㅡㅡ
+
+
+ㅡㅡ*/
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 공부의 국민 추가파트 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+#tabs2 {
+  padding: 100px 0px;
+}
+
+#tabs2.tab-titles {
+  display: flex;
+
+  border-bottom: 2px solid #c58888;
+  padding: 0;
+  list-style: none;
+}
+#tabs2 .tab-pane {
+  border-top: 0px solid #282622;
+}
+
+#tabs2 .tab-titles {
+  display: flex;
+  justify-content: flex-start;
+  width: 1080px;
+  color: white;
+  font-size: 14pt;
+  padding: 30px 0px;
+}
+
+#tabs2 .tabbd {
+  font-size: 48pt;
+  font-weight: 800;
+}
+
+#tabs2 .tab-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 0px;
+  padding: 10px 20px;
+  cursor: pointer;
+  align-items: center;
+  flex: 0 0 auto;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+#tabs2 .tab-title.active {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+#tabs2 .tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#tabs2.content-item1 {
+  height: 483px;
+  display: flex;
+  justify-content: space-between;
+}
+.bestbook {
+  display: flex;
+  justify-content: space-between;
+}
+.bestmain {
+  display: flex;
+}
+.bestmaintext {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
+
+.bestmainimg {
+  width: 226px;
+  height: 308px;
+  background: url(best-art1.jfif);
+  background-size: cover;
+  box-shadow: 2px 2px 20px rgb(101, 101, 101);
+}
+
+.bestsub {
+  width: 600px;
+  height: 243px;
+  display: flex;
+  justify-content: space-between;
+}
+.subbox1,
+.subbox2,
+.subbox3,
+.subbox4 {
+  position: relative; /* 자식의 absolute 위치 기준 */
+  width: 131px;
+  height: 192px;
+  background: white;
+  box-shadow: 2px 2px 20px rgb(101, 101, 101);
+}
+
+.subbox1 p,
+.subbox2 p,
+.subbox3 p,
+.subbox4 p {
+  position: absolute;
+  bottom: -35px; /* 박스 바깥 아래로 20px 이동; 필요에 따라 값 조절 */
+  width: 100%;
+  left: 50%;
+  transform: translateX(-26%); /* 수평 중앙 정렬 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.subbox1 {
+  background-image: url(best-art2.jfif);
+  background-size: cover;
+}
+.subbox2 {
+  background-image: url(best-art3.jfif);
+  background-size: cover;
+}
+.subbox3 {
+  background-image: url(best-art4.jfif);
+  background-size: cover;
+}
+.subbox4 {
+  background-image: url(best-art5.jfif);
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 콘테이너 탭2, 반응 설정 라인2 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+#tabs3 {
+  position: relative;
+  z-index: 10;
+}
+
+#tabs3.tab-titles {
+  display: flex;
+  width: 1080px;
+  border-bottom: 2px solid #c58888;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+#tabs3 .tab-pane {
+  padding: 0px;
+  border-top: 0px solid #fdd98c;
+}
+
+#tabs3 .tab-titles {
+  font-size: 12pt;
+  width: 1080.5px;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: flex-start;
+  margin: auto;
+  list-style: none;
+}
+
+#tabs3 .tab-title {
+  align-self: flex-start;
+  margin-right: 60px;
+  margin-bottom: 30px;
+  border-radius: 60px;
+  padding: 6px 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  color: #0e0e0e;
+  background-color: #dfdfdf;
+  transition: all 0.3s ease;
+}
+
+#tabs3 .tab-title.active {
+  background: rgba(163, 69, 69, 1);
+  color: rgb(255, 255, 255);
+}
+
+#tabs3 .tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.titletext {
+  margin-top: 200px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+.titletext p {
+  font-weight: bold;
+}
+
+#tabs3.content-item1 {
+  height: 483px;
+  display: flex;
+  justify-content: space-between;
+}
+.historybook {
+  display: flex;
+  height: 225px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.historymain {
+  display: flex;
+}
+.historymaintext {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.historymainimg {
+  width: 160px;
+  height: 225px;
+  background: url(history1.jfif);
+  background-size: contain;
+  box-shadow: 2px 2px 20px rgb(182, 182, 182);
+}
+
+.historysub {
+  width: 685px;
+  height: 154px;
+  justify-content: space-between;
+  align-self: flex-end;
+  display: flex;
+}
+.hsubbox1,
+.hsubbox2,
+.hsubbox3,
+.hsubbox4,
+.hsubbox5 {
+  box-shadow: 2px 2px 20px rgb(182, 182, 182);
+  position: relative; /* 자식의 absolute 위치 기준 */
+  width: 110px;
+  height: 150px;
+  background: white;
+  margin: 0px 15px;
+}
+
+.hsubbox1 p,
+.hsubbox2 p,
+.hsubbox3 p,
+.hsubbox4 p,
+.hsubbox5 p {
+  position: absolute;
+  bottom: -35px; /* 박스 바깥 아래로 20px 이동; 필요에 따라 값 조절 */
+  width: 100%;
+  left: 50%;
+  transform: translateX(-29.5%); /* 수평 중앙 정렬 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.hsubbox1 {
+  background: url(history2.jfif);
+  background-size: contain;
+}
+.hsubbox2 {
+  background: url(history3.jfif);
+  background-size: contain;
+}
+.hsubbox3 {
+  background: url(history4.jfif);
+  background-size: contain;
+}
+.hsubbox4 {
+  background: url(history5.jfif);
+  background-size: contain;
+}
+.hsubbox5 {
+  background: url(history6.jfif);
+  background-size: contain;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 콘테이너 탭3 베스트북 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+.best-video{
+  margin-top: 500px;
+}
+
+
+.video-background {
+  position: relative; /* 또는 부모에 따라 absolute 등으로 조정 */
+  z-index: 1;
+  margin-top: 20px; /* 필요에 따라 간격 조절 */
+}
+
+.responsive-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
+}
+
+/* 반응형 영상 설정 */
+.responsive-video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 비율 (9/16=0.5625) */
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 콘테이너 탭3 베스트비디오 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+#tabs4.tab-titles {
+  display: flex;
+  width: 1080px;
+  border-bottom: 2px solid #c58888;
+  margin: auto;
+  padding: 0;
+  list-style: none;
+}
+#tabs4 .tab-pane {
+  padding: 0px;
+  border-top: 0px solid #fdd98c;
+}
+
+#tabs4 .tab-titles {
+  font-size: 12pt;
+  width: 1080.5px;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: flex-start;
+  margin: auto;
+  list-style: none;
+}
+
+#tabs4 .tab-title {
+  align-self: flex-start;
+  margin-right: 60px;
+  margin-bottom: 30px;
+  border-radius: 60px;
+  padding: 6px 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  color: #0e0e0e;
+  background-color: #dfdfdf;
+  transition: all 0.3s ease;
+}
+
+#tabs4 .tab-title.active {
+  background: rgba(163, 69, 69, 1);
+  color: rgb(255, 255, 255);
+}
+
+#tabs4 .tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.titletext {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+.titletext p {
+  font-weight: bold;
+}
+
+#tabs4.content-item1 {
+  height: 483px;
+  display: flex;
+  justify-content: space-between;
+}
+.literbook {
+  display: flex;
+  height: 225px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.litermain {
+  display: flex;
+}
+.litermaintext {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.litermainimg {
+  width: 160px;
+  height: 225px;
+  background: url(leterature1.jfif);
+  background-size: contain;
+  box-shadow: 2px 2px 20px rgb(182, 182, 182);
+}
+
+.litersub {
+  width: 685px;
+  height: 154px;
+  justify-content: space-between;
+  align-self: flex-end;
+  display: flex;
+}
+.lisubbox1,
+.lisubbox2,
+.lisubbox3,
+.lisubbox4,
+.lisubbox5 {
+  position: relative; /* 자식의 absolute 위치 기준 */
+  width: 110px;
+  height: 150px;
+  background: white;
+  margin: 0px 15px;
+  box-shadow: 2px 2px 20px rgb(182, 182, 182);
+}
+
+.lisubbox1 p,
+.lisubbox2 p,
+.lisubbox3 p,
+.lisubbox4 p,
+.lisubbox5 p {
+  position: absolute;
+  bottom: -35px; /* 박스 바깥 아래로 20px 이동; 필요에 따라 값 조절 */
+  width: 100%;
+  left: 50%;
+  transform: translateX(-29.5%); /* 수평 중앙 정렬 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.lisubbox1 {
+  background: url(leterature2.jfif);
+  background-size: contain;
+}
+.lisubbox2 {
+  background: url(leterature3.jfif);
+  background-size: contain;
+}
+.lisubbox3 {
+  background: url(leterature4.jfif);
+  background-size: contain;
+}
+.lisubbox4 {
+  background: url(leterature5.jfif);
+  background-size: contain;
+}
+.lisubbox5 {
+  background: url(leterature6.jfif);
+  background-size: contain;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 콘테이너 탭4 반응 설정 라인4 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+#tabs5.tab-titles {
+  display: flex;
+  width: 1080px;
+  border-bottom: 0px solid #c58888;
+  margin: auto;
+  padding: 0;
+}
+#tabs5 .tab-pane {
+  padding: 0px;
+  border-top: 0px solid #fdd98c;
+}
+
+#tabs5 .tab-titles {
+  font-size: 12pt;
+  width: 1080.5px;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+#tabs5 .tab-title {
+  align-self: flex-start;
+  margin-right: 60px;
+  margin-bottom: 30px;
+  border-radius: 60px;
+  padding: 6px 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  color: #0e0e0e;
+  background-color: #dfdfdf;
+  transition: all 0.3s ease;
+}
+
+#tabs5 .tab-title.active {
+  background: rgba(163, 69, 69, 1);
+  color: rgb(255, 255, 255);
+}
+
+#tabs5 .tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.titletext {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 900;
+}
+.titletext p {
+  font-weight: bold;
+}
+
+#tabs5.content-item1 {
+  height: 483px;
+  display: flex;
+  justify-content: space-between;
+}
+.culturebook {
+  display: flex;
+  height: 225px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.culturemain {
+  display: flex;
+}
+.culturemaintext {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+}
+
+.culturemainimg {
+  width: 160px;
+  height: 225px;
+  background: url(art1.jfif);
+  background-size: contain;
+  box-shadow: 2px 2px 20px rgb(182, 182, 182);
+}
+
+.culturesub {
+  width: 685px;
+  height: 154px;
+  justify-content: space-between;
+  align-self: flex-end;
+  display: flex;
+}
+.cusubbox1,
+.cusubbox2,
+.cusubbox3,
+.cusubbox4,
+.cusubbox5 {
+  position: relative; /* 자식의 absolute 위치 기준 */
+  width: 110px;
+  height: 150px;
+  background: white;
+  margin: 0px 15px;
+  box-shadow: 2px 2px 20px rgb(182, 182, 182);
+}
+
+.cusubbox1 p,
+.cusubbox2 p,
+.cusubbox3 p,
+.cusubbox4 p,
+.cusubbox5 p {
+  position: absolute;
+  bottom: -35px; /* 박스 바깥 아래로 20px 이동; 필요에 따라 값 조절 */
+  width: 100%;
+  left: 50%;
+  transform: translateX(-29.5%); /* 수평 중앙 정렬 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+.cusubbox1 {
+  background: url(art2.jfif);
+  background-size: contain;
+}
+.cusubbox2 {
+  background: url(art3.jfif);
+  background-size: contain;
+}
+.cusubbox3 {
+  background: url(art4.jfif);
+  background-size: contain;
+}
+.cusubbox4 {
+  background: url(art5.jfif);
+  background-size: contain;
+}
+.cusubbox5 {
+  background: url(art6.jfif);
+  background-size: contain;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 콘테이너 탭5 반응 설정 라인 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+.event {
+  background: #b18686;
+  height: 86px;
+}
+
+.eventbox1 {
+  background: black;
+}
+.eventbox2 {
+  background: black;
+}
+.eventbox3 {
+  background: black;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 이벤트 페이지 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
+
+footer {
+  width: 1980px;
+  height: 250px;
+  background: #d9d9d9;
+  padding-top: 20px;
+  margin-top: 100px;
+}
+.foot-text {
+  width: 1080px;
+  margin: 10px auto;
+}
+.foot-text ul li a {
+  color: #000;
+}
+footer .foot .foot-text ul {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 20px 0px;
+}
+
+.foot-text2,
+.foot-text3 {
+  width: 1080px;
+  margin: 20px auto;
+  font-size: 14px;
+}
+.foot-text2 hr {
+  margin-bottom: 20px;
+}
+
+.foot-text2 p,
+.foot-text3 p {
+  margin: 10px 0px;
+}
+.foot-text3 p {
+  color: gray;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡ 푸터 ↑ ㅡㅡㅡㅡㅡㅡㅡㅡㅡ*/
