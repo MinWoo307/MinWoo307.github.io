@@ -179,7 +179,7 @@
         <div class="row">
           <div class="col-lg-12">
             <!-- 자기소개 이미지 -->
-            <img src="img/about/profile-tempo.png" />
+            <img src="img/about/about-my.png" />
           </div>
         </div>
       </div>
@@ -1131,36 +1131,6 @@
           $(".wow").removeAttr("style");
           new WOW().init();
         }
-      });
-    </script>
-
-    <!-- 제이쿼리. 내브, 하얀 글자를 스크롤시 검은색으로 수정 -->
-    <script>
-      $(document).ready(function () {
-        $(window).on("scroll", function () {
-          const scrollPos = $(window).scrollTop();
-
-          const aboutTop = $("#about").offset().top - 100;
-          const designTop = $("#portfolio").offset().top - 100;
-          const webTop = $("#portfolio2").offset().top - 100;
-          const contactTop = $("#contact").offset().top - 100;
-
-          // 모든 메뉴 초기화
-          $("#nav-about, #nav-design, #nav-web, #nav-contact").removeClass(
-            "black-text"
-          );
-
-          // 현재 섹션에 맞는 메뉴에만 클래스 부여
-          if (scrollPos >= contactTop) {
-            $("#nav-contact").addClass("black-text");
-          } else if (scrollPos >= webTop) {
-            $("#nav-web").addClass("black-text");
-          } else if (scrollPos >= designTop) {
-            $("#nav-design").addClass("black-text");
-          } else if (scrollPos >= aboutTop) {
-            $("#nav-about").addClass("black-text");
-          }
-        });
       });
     </script>
   </body>
