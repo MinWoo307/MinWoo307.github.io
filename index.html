@@ -65,19 +65,26 @@
               <a href="#page-top"></a>
             </li>
             <li>
-              <a class="page-scroll" href="#about">About</a>
+              <a id="nav-about" class="page-scroll" href="#about">About</a>
             </li>
             <li>
-              <a class="page-scroll" href="#portfolio">Design Portfolio</a>
+              <a id="nav-design" class="page-scroll" href="#portfolio"
+                >Design Portfolio</a
+              >
             </li>
             <li>
-              <a class="page-scroll" href="#portfolio2">Web Portfolio</a>
+              <a id="nav-web" class="page-scroll" href="#portfolio2"
+                >Web Portfolio</a
+              >
             </li>
             <li>
-              <a class="page-scroll" href="#contact">Contact</a>
+              <a id="nav-contact" class="page-scroll" href="#contact"
+                >Contact</a
+              >
             </li>
           </ul>
         </div>
+
         <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
@@ -94,6 +101,55 @@
           <source src="img/sea-background.mp4" type="video/mp4" />
         </video>
       </div>
+
+      <!-- 표지 사진 애니메이션 -->
+      <div class="bg-layer bg-b"></div>
+
+      <script>
+        const bgB = document.querySelector(".bg-b");
+        let imageVisible = false;
+        let animating = false;
+        let lastScroll = 0;
+
+        bgB.addEventListener("transitionend", () => {
+          // 애니메이션 종료 후 스크롤 허용 및 위치 복원
+          document.body.classList.remove("prevent-scroll");
+          document.body.style.position = "";
+          document.body.style.top = "";
+          window.scrollTo({ top: lastScroll, behavior: "auto" });
+          animating = false;
+        });
+
+        window.addEventListener("wheel", (e) => {
+          if (animating) return;
+
+          // 아래로 스크롤 → 이미지 올라오기
+          if (!imageVisible && e.deltaY > 0) {
+            animating = true;
+            imageVisible = true;
+            lastScroll = window.scrollY;
+
+            document.body.classList.add("prevent-scroll");
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${lastScroll}px`;
+            document.body.style.width = "100%";
+            bgB.classList.add("active");
+          }
+
+          // 위로 스크롤 → 이미지 내려가기 (최상단에서만)
+          if (imageVisible && e.deltaY < 0 && window.scrollY <= 100) {
+            animating = true;
+            imageVisible = false;
+            lastScroll = 0;
+
+            document.body.classList.add("prevent-scroll");
+            document.body.style.position = "fixed";
+            document.body.style.top = "0px";
+            document.body.style.width = "100%";
+            bgB.classList.remove("active");
+          }
+        });
+      </script>
 
       <!-- 비디오 끝 -->
       <div class="container">
@@ -1075,6 +1131,36 @@
           $(".wow").removeAttr("style");
           new WOW().init();
         }
+      });
+    </script>
+
+    <!-- 제이쿼리. 내브, 하얀 글자를 스크롤시 검은색으로 수정 -->
+    <script>
+      $(document).ready(function () {
+        $(window).on("scroll", function () {
+          const scrollPos = $(window).scrollTop();
+
+          const aboutTop = $("#about").offset().top - 100;
+          const designTop = $("#portfolio").offset().top - 100;
+          const webTop = $("#portfolio2").offset().top - 100;
+          const contactTop = $("#contact").offset().top - 100;
+
+          // 모든 메뉴 초기화
+          $("#nav-about, #nav-design, #nav-web, #nav-contact").removeClass(
+            "black-text"
+          );
+
+          // 현재 섹션에 맞는 메뉴에만 클래스 부여
+          if (scrollPos >= contactTop) {
+            $("#nav-contact").addClass("black-text");
+          } else if (scrollPos >= webTop) {
+            $("#nav-web").addClass("black-text");
+          } else if (scrollPos >= designTop) {
+            $("#nav-design").addClass("black-text");
+          } else if (scrollPos >= aboutTop) {
+            $("#nav-about").addClass("black-text");
+          }
+        });
       });
     </script>
   </body>
