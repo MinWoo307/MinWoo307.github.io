@@ -212,7 +212,7 @@ fieldset[disabled] .btn-xl:hover {
 .navbar-custom .nav li a {
     font-weight: 510;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: #212121;
 }
 
 .navbar-custom .nav li a:focus,
@@ -224,7 +224,7 @@ fieldset[disabled] .btn-xl:hover {
 .navbar-custom .navbar-nav > .active > a {
     border-radius: 0;
     color: #080808;
-    background-color: darkslategray
+    background-color: rgb(41, 103, 203)
 }
 
 .navbar-custom .navbar-nav > .active > a:focus,
@@ -255,7 +255,7 @@ fieldset[disabled] .btn-xl:hover {
     }
 
     .navbar-custom.affix {
-        background-color: #121213;
+        background-color: #ffffff;
         padding: 10px 0
     }
 
@@ -265,7 +265,7 @@ fieldset[disabled] .btn-xl:hover {
 }
 
 
-
+ 
 
 header {
     position: relative;
@@ -524,7 +524,7 @@ section h4 {
     }
 
     section#about {
-        padding-top: 90px;
+        padding-top: 250px;
 
     }
 
