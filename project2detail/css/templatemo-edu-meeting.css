@@ -789,7 +789,7 @@ ful-box
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .shop-cart {
@@ -953,6 +953,32 @@ ful-box
 }
 .buy-it {
   background: #222222;
+}
+
+.footer {
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  padding-top: 50px;
+  margin: auto;
+}
+
+.footer p a {
+  color: black;
+  font-weight: 600;
+}
+
+.footer p {
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.footer p {
+  width: 100%;
+  text-align: center;
 }
 
 @media (max-width: 1300px) {
