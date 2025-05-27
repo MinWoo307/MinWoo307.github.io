@@ -81,6 +81,53 @@
     </div>
   </header>
 
+   <!-- 따라오는 팝업창 -->
+    <div id="floatingBox">
+     <p> 이벤트</p>
+      <div class="floatbox-img">
+  <div class="promo-arrow promo-left" onclick="changePromo(-1)">&#9664;</div>
+  <div class="promo-image" id="promoImage"></div>
+  <div class="promo-arrow promo-right" onclick="changePromo(1)">&#9654;</div>
+  </div>
+      <div class="small-10px">쿠폰 & 혜택</div>
+  </div>
+
+    <script>
+        const floatingBox = document.getElementById("floatingBox");
+
+        window.addEventListener("scroll", () => {
+          // 현재 스크롤 위치 + 초기 offset 유지
+          const scrollY = window.scrollY + 100;
+          floatingBox.style.top = scrollY + "px";
+        });
+        const promoImages = [
+        "img/ranking1.jpg",
+        "img/ranking2.jpg",
+        "img/ranking3.jpg"
+      ];
+
+      let currentPromo = 0;
+
+      function changePromo(direction) {
+        currentPromo += direction;
+        if (currentPromo < 0) {
+          currentPromo = promoImages.length - 1;
+        } else if (currentPromo >= promoImages.length) {
+          currentPromo = 0;
+        }
+
+        const promoBox = document.getElementById("promoImage");
+        promoBox.style.backgroundImage = `url('${promoImages[currentPromo]}')`;
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        changePromo(0);
+      });
+        </script>
+
+
+
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/custom.js"></script>
   <div class="container">
@@ -184,8 +231,7 @@
                 <p><a href="">구입하기</a></p>
               </div>
             </div>
-            <div class="freeview"></div> <!-- 여기서부터 어떻게하지.. 릴레이티브 아니면 이미지있는곳에 박스안에 이미지
-                만든 뒤에 그 이미지아래에둘까..-->
+            <div class="freeview"></div> 
           </div>
           <div class="first-box">
             <div class="number">
@@ -230,8 +276,7 @@
                 <p><a href="">구입하기</a></p>
               </div>
             </div>
-            <div class="freeview"></div> <!-- 여기서부터 어떻게하지.. 릴레이티브 아니면 이미지있는곳에 박스안에 이미지
-                만든 뒤에 그 이미지아래에둘까..-->
+            <div class="freeview"></div> 
           </div>
           <div class="first-box">
             <div class="number">
@@ -276,8 +321,7 @@
                 <p><a href="">구입하기</a></p>
               </div>
             </div>
-            <div class="freeview"></div> <!-- 여기서부터 어떻게하지.. 릴레이티브 아니면 이미지있는곳에 박스안에 이미지
-                만든 뒤에 그 이미지아래에둘까..-->
+            <div class="freeview"></div> 
           </div>
           <div class="first-box">
             <div class="number">
@@ -323,8 +367,7 @@
                 <p><a href="">구입하기</a></p>
               </div>
             </div>
-            <div class="freeview"></div> <!-- 여기서부터 어떻게하지.. 릴레이티브 아니면 이미지있는곳에 박스안에 이미지
-                만든 뒤에 그 이미지아래에둘까..-->
+            <div class="freeview"></div>
           </div>
           <div class="first-box">
             <div class="number">
@@ -369,8 +412,7 @@
                 <p><a href="">구입하기</a></p>
               </div>
             </div>
-            <div class="freeview"></div> <!-- 여기서부터 어떻게하지.. 릴레이티브 아니면 이미지있는곳에 박스안에 이미지
-                만든 뒤에 그 이미지아래에둘까..-->
+            <div class="freeview"></div> 
           </div>
           <div class="first-box">
             <div class="number">
@@ -416,8 +458,7 @@
                 <p><a href="">구입하기</a></p>
               </div>
             </div>
-            <div class="freeview"></div> <!-- 여기서부터 어떻게하지.. 릴레이티브 아니면 이미지있는곳에 박스안에 이미지
-                만든 뒤에 그 이미지아래에둘까..-->
+            <div class="freeview"></div> 
           </div>
           <div class="first-box">
             <div class="number">
