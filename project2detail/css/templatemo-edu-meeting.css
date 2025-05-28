@@ -784,10 +784,9 @@ header
   position: absolute;
   top: 82%;
   transform: translateY(-50%);
-  font-size: 6px;
+  font-size: 18px;
   font-weight: bold;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.5);
+  color: #222222;
   padding: 2px 5px;
   margin: 0 10px;
   cursor: pointer;
@@ -1004,9 +1003,9 @@ ful-box
 }
 .shop-cart,
 .buy-it {
-  width: 138px;
-  height: 46px;
-  border-radius: 10px;
+  width: 118px;
+  height: 38px;
+  border-radius: 7px;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -1015,10 +1014,10 @@ ful-box
 .shop-cart p a,
 .buy-it p a {
   color: white;
-  font-size: 15;
+  font-size: 12px;
 }
 .shop-cart {
-  background: #8b8b8b;
+  background: #9b9b9b;
 }
 .buy-it {
   background: #222222;
