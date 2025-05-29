@@ -945,6 +945,7 @@ banner
   color: #6579bd;
   opacity: 1;
   border: #6579bd solid 1px;
+  border-bottom: none;
 }
 .tab-button.active {
   border: 1px solid #000000;
