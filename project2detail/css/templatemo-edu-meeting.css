@@ -955,11 +955,14 @@ ful-box
   margin: auto 0;
   margin-left: 15%;
 }
+.number h3 {
+  font-size: 18px;
+}
 .headline {
   margin-left: 17%;
   width: 75%;
 }
-
+/* ↓국내도서↓ */
 .book-exbox .book1 {
   background: url("../img/ranking1.jpg");
   background-size: cover;
@@ -1000,6 +1003,49 @@ ful-box
   background: url("../img/ranking10.jpg");
   background-size: cover;
 }
+
+/* ↓국내도서↓ */
+.book-exbox .kbook1 {
+  background: url("../img/koera1.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook2 {
+  background: url("../img/koera2.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook3 {
+  background: url("../img/koera3.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook4 {
+  background: url("../img/koera4.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook5 {
+  background: url("../img/koera5.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook6 {
+  background: url("../img/koera6.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook7 {
+  background: url("../img/koera7.jpg");
+  background-size: contain;
+}
+.book-exbox .kbook8 {
+  background: url("../img/koera8.jpg");
+  background-size: contain;
+}
+.book-exbox .kbook9 {
+  background: url("../img/koera9.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook10 {
+  background: url("../img/koera10.jpg");
+  background-size: cover;
+}
+
 .detail-explain {
   width: 600px; /* 줄임 */
   margin: auto 40px;
@@ -1037,7 +1083,7 @@ ful-box
   height: 18px;
 }
 .ctype4 {
-  background: #651007;
+  background: #ab3629;
   width: 60px;
   height: 18px;
 }
@@ -1068,14 +1114,15 @@ ful-box
   font-size: 12px;
 }
 .percen {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 500;
   color: #00ad14;
   margin-bottom: 20px;
+  margin-right: 10px;
 }
 .price {
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 500;
   color: #000000;
 }
 
