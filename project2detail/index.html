@@ -1,2633 +1,1418 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moonlit 헤더</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="bootstrap/js/" />
-    <link rel="stylesheet" href="css/templatemo-edu-meeting.css" />
-    <link rel="stylesheet" href="css/fontawesome.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+/*
 
-  <body>
-    <!-- 최상단 안내창 -->
-    <div class="sub-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-sm-8">
-            <div class="left-content">
-              <p>
-                <em>독서와 콘텐츠가 하나 되는 Moonlit</em>에 오신 것을
-                환영합니다
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-sm-4">
-            <div class="right-icons">
-              <ul>
-                <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-behance"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+TemplateMo 569 Edu Meeting
 
-    <!-- 네비게이션 영역 -->
-    <header class="header-area header-sticky">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <a href="https://minwoo307.github.io/project2/" class="logo"> Moonlit </a>
-              <ul class="nav">
-                <li class="scroll-to-section">
-                  <a href="#top" class="active">랭킹</a>
-                </li>
-                <li><a href="meetings.html">이북</a></li>
-                <li class="scroll-to-section"><a href="#apply">추천</a></li>
-                <li class="has-sub">
-                  <a href="javascript:void(0)">카테고리</a>
-                  <ul class="sub-menu">
-                    <li><a href="meetings.html">국내도서</a></li>
-                    <li><a href="meeting-details.html">외국도서</a></li>
-                  </ul>
-                </li>
-                <li class="scroll-to-section"><a href="#courses">기획적</a></li>
-                <li class="scroll-to-section">
-                  <a href="#contact">마이페이지</a>
-                </li>
-              </ul>
-              <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
+https://templatemo.com/tm-569-edu-meeting
 
-    <!-- 따라오는 팝업창 -->
-    <div id="floatingBox">
-      <p>이벤트</p>
-      <div class="floatbox-img">
-        <div class="promo-arrow promo-left" onclick="changePromo(-1)">
-          &#8249;
-        </div>
-        <div class="promo-image" id="promoImage"></div>
-        <div class="promo-arrow promo-right" onclick="changePromo(1)">
-          &#8250;
-        </div>
-      </div>
-      <div class="small-10px">쿠폰 & 혜택</div>
-    </div>
+*/
 
-    <script>
-      const floatingBox = document.getElementById("floatingBox");
+/* ---------------------------------------------
+Table of contents
+------------------------------------------------
+01. font & reset css
+02. reset
+03. global styles
+04. header
+05. banner
+06. features
+07. testimonials
+08. contact
+09. footer
+10. preloader
+11. search
+12. portfolio
 
-      window.addEventListener("scroll", () => {
-        // 현재 스크롤 위치 + 초기 offset 유지
-        const scrollY = window.scrollY + 100;
-        floatingBox.style.top = scrollY + "px";
-      });
-      const promoImages = [
-        "img/bookpop1.png",
-        "img/bookpop2.png",
-        "img/bookpop1.png",
-      ];
+--------------------------------------------- */
+/* 
+---------------------------------------------
+font & reset css
+--------------------------------------------- 
+*/
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+/* 
+---------------------------------------------
+reset
+--------------------------------------------- 
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+div pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+figure,
+header,
+nav,
+section,
+article,
+aside,
+footer,
+figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
 
-      let currentPromo = 0;
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
 
-      function changePromo(direction) {
-        currentPromo += direction;
-        if (currentPromo < 0) {
-          currentPromo = promoImages.length - 1;
-        } else if (currentPromo >= promoImages.length) {
-          currentPromo = 0;
-        }
+.clearfix {
+  display: inline-block;
+}
 
-        const promoBox = document.getElementById("promoImage");
-        promoBox.style.backgroundImage = `url('${promoImages[currentPromo]}')`;
-      }
+html[xmlns] .clearfix {
+  display: block;
+}
 
-      window.addEventListener("DOMContentLoaded", () => {
-        changePromo(0);
-      });
-    </script>
+* html .clearfix {
+  height: 1%;
+}
 
-<aside class="lefter">
-  <h3 class="lefter-title">카테고리</h3>
-  <nav class="lefter-nav">
-    <ul class="lefter-list">
-      <li class="lefter-section">베스트셀러</li>
-      <li class="lefter-item"><a href="#">종합 베스트</a></li>
-      <li class="lefter-item"><a href="#">주간</a></li>
-      <li class="lefter-item"><a href="#">월간</a></li>
-      <li class="lefter-item"><a href="#">연간</a></li>
-      <hr>
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
-      <li class="lefter-section">문학 • 교재</li>
-      <li class="lefter-item"><a href="#">종합 베스트</a></li>
-      <li class="lefter-item"><a href="#">일간</a></li>
-      <li class="lefter-item"><a href="#">주간</a></li>
-      <li class="lefter-item"><a href="#">월간</a></li>
-      <hr>
+header,
+nav,
+section,
+article,
+aside,
+footer,
+hgroup {
+  display: block;
+}
 
-      <li class="lefter-section">원작 작품</li>
-      <li class="lefter-item"><a href="#">전체</a></li>
-      <li class="lefter-item"><a href="#">국내</a></li>
-      <li class="lefter-item"><a href="#">서양 • 일본</a></li>
-      <hr>
+* {
+  box-sizing: border-box;
+}
 
-      <li class="lefter-section">스테디셀러</li>
-      <li class="lefter-item"><a href="#">분야별 보기</a></li>
-    </ul>
-  </nav>
-</aside>
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  background-color: #fff;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/custom.js"></script>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-                 <div class="banner-slider">
-          <div class="banner-slide" style="background-image: url(img/banner.png);"></div>
-          <div class="banner-slide" style="background-image: url(img/banner2.png);"></div>
-          <div class="banner-slide" style="background-image: url(img/banner.png);"></div>
-          <div class="banner-slide" style="background-image: url(img/banner2.png);"></div>
-          <div class="banner-slide" style="background-image: url(img/banner.png);"></div>
+a {
+  text-decoration: none !important;
+  color: #3cf;
+}
 
-          <div class="banner-arrow banner-prev">&#10094;</div>
-          <div class="banner-arrow banner-next">&#10095;</div>
-        </div>
-        </div>
-      </div>
-    </div>
+.shop-button a,
+.buy-it a {
+  color: black;
+}
 
+a:hover {
+  color: #fc3;
+}
 
-      <!-- 배너슬라이드 js 애니메이션 -->
-     <script>
-    $(document).ready(function () {
-      let current = 0;
-      const slides = $('.banner-slide');
-      const total = slides.length;
-      let timer;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
-      function showSlide(index) {
-        slides.removeClass('active');
-        slides.eq(index).addClass('active');
-        current = index;
-      }
+ul {
+  margin-bottom: 0px;
+}
 
-      function nextSlide() {
-        const next = (current + 1) % total;
-        showSlide(next);
-      }
+p {
+  font-size: 14px;
+  line-height: 25px;
+  color: #2a2a2a;
+}
 
-      function prevSlide() {
-        const prev = (current - 1 + total) % total;
-        showSlide(prev);
-      }
+img {
+  width: 100%;
+  overflow: hidden;
+}
 
-      $('.banner-next').click(function () {
-        nextSlide();
-        resetTimer();
-      });
+/* 
+---------------------------------------------
+global styles
+--------------------------------------------- 
+*/
+html,
+body {
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+}
 
-      $('.banner-prev').click(function () {
-        prevSlide();
-        resetTimer();
-      });
+::selection {
+  background: #f5a425;
+  color: #fff;
+}
 
-      function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(nextSlide, 7000);
-      }
+::-moz-selection {
+  background: #f5a425;
+  color: #fff;
+}
 
-      // 초기 실행
-      showSlide(0);
-      timer = setInterval(nextSlide, 7000);
-    });
-  </script>
+@media (max-width: 991px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  .mobile-top-fix {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+  .mobile-bottom-fix {
+    margin-bottom: 30px;
+  }
+  .mobile-bottom-fix-big {
+    margin-bottom: 60px;
+  }
+}
 
-  
+.main-button-red a {
+  font-size: 13px;
+  color: #fff;
+  background-color: #070707;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
 
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="oline-word"><p>온라인 베스트</p></div>
-          <div class="category-tabs">
-            <button class="tab-button active" data-category="all">전체</button>
-            <button class="tab-button" data-category="korea">국내도서</button>
-            <button class="tab-button" data-category="foreign">외국도서</button>
-            <button class="tab-button" data-category="kyobo">문릿 ONLY</button>
-            <button class="tab-button" data-category="ebook">eBook</button>
-            <button class="tab-button" data-category="sam">sam</button>
-            <button class="tab-button" data-category="hottracks">서브컬쳐</button>
-          </div>
-        </div>
-        <div class="online-box-wrapper">
-          <div
-            class="online-box-list"
-            data-category="all"
-            style="display: block"
-          >
-            <!-- 여기에 전체 10개 도서 -->
-            <div class="list-allbox">
-              <div class="calender"><p>2025.05.27</p></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>1</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book1"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">페스트</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        이번 『페스트』는 이미 2023년 하드커버로 출간된
-                        『역병』의 개정 완역판이다. 제목은 『페스트』 로
-                        바뀌었지만, 단순한 표지 교체가 아닌 전면적인 번역 수정과
-                        문장 개편을 거친 완전히 새로운 작품이다. 특히 이정서
-                        번역가는 이번 작업에서 원문 문장의 구조와 리듬, 문장
-                        부호까지 살려내는 ‘구문 직역’의 방식을 일관되게
-                        유지했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>2</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book2"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">스토너</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >존 윌리엄스 • 김승욱 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        농업을 배우기 위해 대학에 진학해 영문학개론 수업에서
-                        접한 셰익스피어의 일흔세 번째 소네트를 접한 후 문학을
-                        사랑하게 된 스토너는 고향에 돌아가는 대신 대학에 남아
-                        영문학도의 길을 택한다 . 사랑하는 여인과 결혼해 가정을
-                        이루고 교수가 되지만 어느 순간 가족과 동료들로부터
-                        고립되어 슬프고 쓸쓸한 삶을 살아간다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>3</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book3"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">산 루이스 레이의 다리</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >손턴 와일더 • 정해영 • 2025.05.02</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,300원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        어느 날 찾아온 예상치 못한 비극 앞에서, 우리는 비로소
-                        삶이 얼마나 쉽게 무너질 수 있는지를 깨닫는다. 특히,
-                        설명할 수 없는 사고로 사랑하는 이를 잃게 되었을 때,
-                        우리는 이렇게 묻는다. “왜 하필 이런 일이 일어난 걸까? 이
-                        모든 것에 과연 어떤 의미가 있을까?” 손턴 와일더의 소설
-                        『산 루이스 레이의 다리』는 바로 이러한 질문에서
-                        출발한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>4</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book4"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">바움가트너</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >폴 오스터 • 정영목 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,020원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        바움가트너는 기억의 정원 속 나뭇가지처럼 얽혀 있는 삶의
-                        단편들을 하나씩 찾아간다. 소설은 1968년 뉴욕에서 가난한
-                        문인 지망생으로 아내를 처음 만난 이후 함께한 40년간의
-                        세월, 그리고 뉴어크에서의 어린 시절부터 양장점 주인이자
-                        실패한 혁명가였던 아버지에 대한 회상까지 한 인물의
-                        일생을 톺아보며 그의 내적인 서사를 따라간다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>5</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book5"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title"
-                          >전부 저 때문에 벌어진 일이에요</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >에밀리 오스턴 • 나연수 • 2025.05.14</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        어린 시절 기르던 토끼가 죽은 후, 죽음에 대한 극심한
-                        공포와 근거 없는 죄책감에 시달리던 20대 후반의 무신론자
-                        레즈비언 길다. 얼떨결레 성당 접수원으로 취직하게 된
-                        그녀는 독실한 가톨릭 신자인 척 연기를 해야만 한다.
-                        그러던 어느 날, 세상을 떠난 전임 접수원에게 이메일 한
-                        통이 도착하고, 차마 슬픈 소식을 전할 수 없었던 길다는
-                        대신 답장을 보내기 시작한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>6</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book6"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">더 코워커</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >프리다 맥파든 • 최주원 • 2025.05.14</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,650원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        출간하는 책마다 아마존 베스트셀러에 오르는 경이로운
-                        기록을 써나가고 있는 프리다 맥파든의 신작 《더
-                        코워커》가 출간되었다. 프리다 맥파든은 2023 국제 스릴러
-                        작가상과 굿리즈 선정 ‘미스터리&스릴러 부문’을
-                        수상했으며, 전작인 《하우스메이드》는 전 세계 1,700만
-                        독자들의 선택을 받았다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>7</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book7"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">햄릿</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >윌리엄 셰익스피어 • 이진영 • 2025.04.25</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,820원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        완성도 높은 플롯, 개성 강하고 복합적인 캐릭터, 인간과
-                        사회에 대한 깊은 통찰이 담긴 스토리. 새롭고 고유한
-                        번역을 시도된 셰익스피어 고전 문학. 독자들은 역자에 따라
-                        이렇게 번역이 다를 수 있음을 새삼 느끼면서, 작품 속
-                        아름답고 깊은 울림을 주는 모든 독백과 속삭임 속으로
-                        빠져들 것이다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>8</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book8"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title"
-                          >popeye 매거진 5월호 (Hello Tokyo)</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        거리의 얼굴이, 또 들뜨고 설레는 것 같은 기분이 든다.
-                        요즘 도쿄를 걸으니 여기저기서 그런 생각을 하게 되었다.
-                        당연한 시점이나 기시감에서 벗어나, 쭉 다가가서 해상도를
-                        올리거나, 가벼운 시선으로 딥하게 잠수하는 그런 식으로
-                        도쿄를 퀘스트 해보자.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>9</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book9"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">페스트</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        이번 『페스트』는 이미 2023년 하드커버로 출간된
-                        『역병』의 개정 완역판이다. 제목은 『페스트』 로
-                        바뀌었지만, 단순한 표지 교체가 아닌 전면적인 번역 수정과
-                        문장 개편을 거친 완전히 새로운 작품이다. 특히 이정서
-                        번역가는 이번 작업에서 원문 문장의 구조와 리듬, 문장
-                        부호까지 살려내는 ‘구문 직역’의 방식을 일관되게
-                        유지했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>10</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book10"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>한국도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">크림의 무게를 재는 방법</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer">조시현 소설집 • 2025.03.20</span>
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        “너를 만나기 위해 이렇게 빚어온 몸이라면, 나는 어떤
-                        몸으로 죽게 될까” 멸망하는 우주 속 사랑이라는 환상통
-                        누군가를 그리워하기 위해 태어난 것만 같은 존재들. 한국
-                        문단의 새로운 스토리텔러 시인 조시현의 첫 소설집
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-            </div>
-          </div>
+.main-button-red a:hover {
+  opacity: 0.9;
+}
 
-          <div
-            class="online-box-list"
-            data-category="korea"
-            style="display: none"
-          >
-            <!-- 국내도서용 10개 도서 -->
-             <div class="list-allbox">
-              <div class="calender"><p>2025.05.27</p></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>1</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook1"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">청춘의 독서</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >유시민 • 웅진지식하우스 • 2025.04.22</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,100원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        혼탁한 정국마다 명료한 통찰을 전하며 ‘신경안정제’ 역할을 해준 우리 시대의
-                         지식인 유시민. 그의 대표작 중 하나로 2009년 처음 출간되어 오랜 시
-                         간 사랑받아온 『청춘의 독서』가 고급 양장 제본의 특별증보판으로 독자들과
-                          새롭게 만난다. 존 스튜어트 밀의 『자유론』에 관한 이야기와 특별증보판
-                           서문이 추가됐다. 문장도 전체적으로 손봤다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>2</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook2"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">혹시, 돈 예기해도 될까요?</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >주언규 저자 • 2025.05.28</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,820원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                       성공과 실패, 좌절과 회복의 모든 과정을 숨김없이 풀어놓으며 유튜브와 인스타그램을
-                        통해 80만의 인생 멘토가 된 주언규가 내놓은 현실적이고 전략적인 조언집이다. 돈과
-                         커리어, 그리고 인생의 모든 과정에서 시행착오를 줄이고 싶다면 반드시 먼저 읽어야
-                          할 이야기이다. 
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>3</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook3"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">행복한 철학자</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >우애령 저자 • 엄유진 그림 • 2023.11.13</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,100원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        『행복한 철학자』는 소설가이자 카운슬링 에세이 작가인 우애령의 그림이 있는 에세이다.
-                        이야기 속 ‘철학자’는 아파트에서 오리를 기르려는 몽상가이자, 버려진 존재들에 대한
-                         애정을 버리지 못하는 자궁형 인간이며, 숨은 골짜기 은곡재에서 땅을 일구는 농부이기도
-                          하다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>4</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook4"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">우리의 낙원에서 만나자</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >하태완 저자 • 2025.05.22</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,550원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        에세이 연간 베스트셀러에 오르며 독보적인 자리를 지켜온 작가 하태완이
-                         2년 만의 신작으로 우리 곁에 찾아온다. 많은 독자가 직접 책 속 문장을 옮겨 적거나
-                           공유하며 열광하는 그의 이야기는 ‘지금 이 순간을 살아내는 이들을
-                            가장 따뜻하게 다독이는 사람’, ‘관계를 바라보는 가장 다정하고
-                             예리한 시선’이라는 찬사를 얻고 있다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>5</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook5"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">엄마의 말 연습</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >운지영 저자 • 2022.09.22</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,750원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                      아이는 부모의 말을 통해 사랑을 느끼고 세상 사는 법을 배운다. 오늘
-                       사랑하는 아이에게 상처 주는 말을 하지 않았는지 되돌아보자. 그리고
-                        『엄마의 말 연습』을 읽으며 진심을 전하는 법을 익혀보자. 씩씩하고
-                         자존감 높은 아이로 키우는 데 이 책이 큰 도움이 될 것이다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>6</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook6"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">단 한 번의 삶</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >김영하 • 2025.04.06</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,160원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        우리는 얼마나 서로를, 그리고 자신을 모르고 살아가는가.
-                         생각은 하나의 질문으로 수렴된다. 이 책은 독자들에게 쉬운 위로나 
-                         뻔한 조언을 건네지 않는다. 대신 담담히 풀어낸 솔직한
-                          경험과 고민을 통해 독자들이 자신의 삶을 되돌아보게 만든다.
-                           『단 한 번의 삶』과 함께, 두고 온 시절에서 발견한 자기
-                            삶의 장면들을 기록해보길 권한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>7</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook7"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">인생을 바꾸는 이메일 쓰기</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >이슬아 저자   • 2025.04.25</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,020원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        여기 제도권의 그 어떤 청탁도, 초대도 없이 오직 ‘이메일’만으로 자신의 영토를 개척하고,
-                         독자와 직거래에 나선 작가가 있다. 그에게는 등단도, 평단의 인정이나 찬사도, 두둑한
-                          연봉도 필요하지 않았다. 그저 한없이 갈고닦은 자신의 문장과 마음을 ‘단 한 사람’에게
-                           직접 송신할 수 있는 매체, ‘이메일’이면 충분했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>8</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook8"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">앵무새 죽이기</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >하퍼 리 저자 • 김동욱 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        성경 다음으로 가장 영향력 있는 책 1위, 『앵무새 죽이기』의 리커버 에디션이다.
-                         교보문고에서만 만날 수 있는 이번 에디션은 나무 위에 앉은 앵무새의 일러스트를
-                          오로지 박 가공으로만 구현해 소장 가치를 높인 특별한 판본이다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>9</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook9"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">혼모노</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >성해나 저자 • 2025.03.28</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        2024·2025 젊은작가상, 2024 이효석문학상 우수작품상 수상작 수록
-                      작품마다 치밀한 취재와 정교한 구성을 바탕으로 한 개성적인 캐릭터와
-                       강렬하고도 서늘한 서사로 평단과 독자의 주목을 고루 받으며 새로운
-                        세대의 리얼리즘을 열어가고 있다 평가받는 작가 성해나가 두번째
-                         소설집 『혼모노』를 선보인다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>10</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker kbook10"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>국내도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">모순</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer">조시현 소설집 • 2013.04.20</span>
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">11,700원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                       * 내 인생의 볼륨이 이토록이나 빈약하다는 사실에 대해 나는 어쩔 수 없이 절망한다.
-                        솔직히 말해서 내가 요즘 들어 가장 많이 우울해하는 것은 내 인생에 양감(量感)이 
-                        없다는 것이다. 내 삶의 부피는 너무 얇다. 겨자씨 한 알 심을 만한 깊이도 없다. 
-                        이렇게 살아도 되는 것일까.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-            </div>
-          </div>
-          </div>
+.main-button-yellow a {
+  font-size: 13px;
+  color: #fff;
+  background-color: #f5a425;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
 
-          <div
-            class="online-box-list"
-            data-category="foreign"
-            style="display: none"
-          >
-            <!-- 외국도서용 10개 도서 -->
-             <div class="list-allbox">
-              <div class="calender"><p>2025.05.27</p></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>1</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book1"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">페스트</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        이번 『페스트』는 이미 2023년 하드커버로 출간된
-                        『역병』의 개정 완역판이다. 제목은 『페스트』 로
-                        바뀌었지만, 단순한 표지 교체가 아닌 전면적인 번역 수정과
-                        문장 개편을 거친 완전히 새로운 작품이다. 특히 이정서
-                        번역가는 이번 작업에서 원문 문장의 구조와 리듬, 문장
-                        부호까지 살려내는 ‘구문 직역’의 방식을 일관되게
-                        유지했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>2</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book2"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">스토너</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >존 윌리엄스 • 김승욱 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        농업을 배우기 위해 대학에 진학해 영문학개론 수업에서
-                        접한 셰익스피어의 일흔세 번째 소네트를 접한 후 문학을
-                        사랑하게 된 스토너는 고향에 돌아가는 대신 대학에 남아
-                        영문학도의 길을 택한다 . 사랑하는 여인과 결혼해 가정을
-                        이루고 교수가 되지만 어느 순간 가족과 동료들로부터
-                        고립되어 슬프고 쓸쓸한 삶을 살아간다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>3</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book3"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">산 루이스 레이의 다리</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >손턴 와일더 • 정해영 • 2025.05.02</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,300원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        어느 날 찾아온 예상치 못한 비극 앞에서, 우리는 비로소
-                        삶이 얼마나 쉽게 무너질 수 있는지를 깨닫는다. 특히,
-                        설명할 수 없는 사고로 사랑하는 이를 잃게 되었을 때,
-                        우리는 이렇게 묻는다. “왜 하필 이런 일이 일어난 걸까? 이
-                        모든 것에 과연 어떤 의미가 있을까?” 손턴 와일더의 소설
-                        『산 루이스 레이의 다리』는 바로 이러한 질문에서
-                        출발한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>4</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book4"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">바움가트너</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >폴 오스터 • 정영목 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,020원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        바움가트너는 기억의 정원 속 나뭇가지처럼 얽혀 있는 삶의
-                        단편들을 하나씩 찾아간다. 소설은 1968년 뉴욕에서 가난한
-                        문인 지망생으로 아내를 처음 만난 이후 함께한 40년간의
-                        세월, 그리고 뉴어크에서의 어린 시절부터 양장점 주인이자
-                        실패한 혁명가였던 아버지에 대한 회상까지 한 인물의
-                        일생을 톺아보며 그의 내적인 서사를 따라간다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>5</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book5"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title"
-                          >전부 저 때문에 벌어진 일이에요</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >에밀리 오스턴 • 나연수 • 2025.05.14</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        어린 시절 기르던 토끼가 죽은 후, 죽음에 대한 극심한
-                        공포와 근거 없는 죄책감에 시달리던 20대 후반의 무신론자
-                        레즈비언 길다. 얼떨결레 성당 접수원으로 취직하게 된
-                        그녀는 독실한 가톨릭 신자인 척 연기를 해야만 한다.
-                        그러던 어느 날, 세상을 떠난 전임 접수원에게 이메일 한
-                        통이 도착하고, 차마 슬픈 소식을 전할 수 없었던 길다는
-                        대신 답장을 보내기 시작한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>6</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book6"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">더 코워커</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >프리다 맥파든 • 최주원 • 2025.05.14</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,650원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        출간하는 책마다 아마존 베스트셀러에 오르는 경이로운
-                        기록을 써나가고 있는 프리다 맥파든의 신작 《더
-                        코워커》가 출간되었다. 프리다 맥파든은 2023 국제 스릴러
-                        작가상과 굿리즈 선정 ‘미스터리&스릴러 부문’을
-                        수상했으며, 전작인 《하우스메이드》는 전 세계 1,700만
-                        독자들의 선택을 받았다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>7</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book7"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">햄릿</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >윌리엄 셰익스피어 • 이진영 • 2025.04.25</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,820원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        완성도 높은 플롯, 개성 강하고 복합적인 캐릭터, 인간과
-                        사회에 대한 깊은 통찰이 담긴 스토리. 새롭고 고유한
-                        번역을 시도된 셰익스피어 고전 문학. 독자들은 역자에 따라
-                        이렇게 번역이 다를 수 있음을 새삼 느끼면서, 작품 속
-                        아름답고 깊은 울림을 주는 모든 독백과 속삭임 속으로
-                        빠져들 것이다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>8</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book8"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title"
-                          >popeye 매거진 5월호 (Hello Tokyo)</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        거리의 얼굴이, 또 들뜨고 설레는 것 같은 기분이 든다.
-                        요즘 도쿄를 걸으니 여기저기서 그런 생각을 하게 되었다.
-                        당연한 시점이나 기시감에서 벗어나, 쭉 다가가서 해상도를
-                        올리거나, 가벼운 시선으로 딥하게 잠수하는 그런 식으로
-                        도쿄를 퀘스트 해보자.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>9</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book9"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">페스트</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        이번 『페스트』는 이미 2023년 하드커버로 출간된
-                        『역병』의 개정 완역판이다. 제목은 『페스트』 로
-                        바뀌었지만, 단순한 표지 교체가 아닌 전면적인 번역 수정과
-                        문장 개편을 거친 완전히 새로운 작품이다. 특히 이정서
-                        번역가는 이번 작업에서 원문 문장의 구조와 리듬, 문장
-                        부호까지 살려내는 ‘구문 직역’의 방식을 일관되게
-                        유지했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>10</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book10"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>한국도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">크림의 무게를 재는 방법</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer">조시현 소설집 • 2025.03.20</span>
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        “너를 만나기 위해 이렇게 빚어온 몸이라면, 나는 어떤
-                        몸으로 죽게 될까” 멸망하는 우주 속 사랑이라는 환상통
-                        누군가를 그리워하기 위해 태어난 것만 같은 존재들. 한국
-                        문단의 새로운 스토리텔러 시인 조시현의 첫 소설집
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-            </div>
-          </div>
+.main-button-yellow a:hover {
+  opacity: 0.9;
+}
 
-               <!-- 그 외 4개 -->
-             <div class="list-allbox">
-              <div class="calender"><p>2025.05.27</p></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>1</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book1"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">페스트</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        이번 『페스트』는 이미 2023년 하드커버로 출간된
-                        『역병』의 개정 완역판이다. 제목은 『페스트』 로
-                        바뀌었지만, 단순한 표지 교체가 아닌 전면적인 번역 수정과
-                        문장 개편을 거친 완전히 새로운 작품이다. 특히 이정서
-                        번역가는 이번 작업에서 원문 문장의 구조와 리듬, 문장
-                        부호까지 살려내는 ‘구문 직역’의 방식을 일관되게
-                        유지했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>2</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book2"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">스토너</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >존 윌리엄스 • 김승욱 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        농업을 배우기 위해 대학에 진학해 영문학개론 수업에서
-                        접한 셰익스피어의 일흔세 번째 소네트를 접한 후 문학을
-                        사랑하게 된 스토너는 고향에 돌아가는 대신 대학에 남아
-                        영문학도의 길을 택한다 . 사랑하는 여인과 결혼해 가정을
-                        이루고 교수가 되지만 어느 순간 가족과 동료들로부터
-                        고립되어 슬프고 쓸쓸한 삶을 살아간다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>3</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book3"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">산 루이스 레이의 다리</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >손턴 와일더 • 정해영 • 2025.05.02</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">15,300원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        어느 날 찾아온 예상치 못한 비극 앞에서, 우리는 비로소
-                        삶이 얼마나 쉽게 무너질 수 있는지를 깨닫는다. 특히,
-                        설명할 수 없는 사고로 사랑하는 이를 잃게 되었을 때,
-                        우리는 이렇게 묻는다. “왜 하필 이런 일이 일어난 걸까? 이
-                        모든 것에 과연 어떤 의미가 있을까?” 손턴 와일더의 소설
-                        『산 루이스 레이의 다리』는 바로 이러한 질문에서
-                        출발한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>4</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book4"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">바움가트너</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >폴 오스터 • 정영목 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,020원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        바움가트너는 기억의 정원 속 나뭇가지처럼 얽혀 있는 삶의
-                        단편들을 하나씩 찾아간다. 소설은 1968년 뉴욕에서 가난한
-                        문인 지망생으로 아내를 처음 만난 이후 함께한 40년간의
-                        세월, 그리고 뉴어크에서의 어린 시절부터 양장점 주인이자
-                        실패한 혁명가였던 아버지에 대한 회상까지 한 인물의
-                        일생을 톺아보며 그의 내적인 서사를 따라간다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>5</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book5"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title"
-                          >전부 저 때문에 벌어진 일이에요</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >에밀리 오스턴 • 나연수 • 2025.05.14</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        어린 시절 기르던 토끼가 죽은 후, 죽음에 대한 극심한
-                        공포와 근거 없는 죄책감에 시달리던 20대 후반의 무신론자
-                        레즈비언 길다. 얼떨결레 성당 접수원으로 취직하게 된
-                        그녀는 독실한 가톨릭 신자인 척 연기를 해야만 한다.
-                        그러던 어느 날, 세상을 떠난 전임 접수원에게 이메일 한
-                        통이 도착하고, 차마 슬픈 소식을 전할 수 없었던 길다는
-                        대신 답장을 보내기 시작한다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>6</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book6"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">더 코워커</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >프리다 맥파든 • 최주원 • 2025.05.14</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,650원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        출간하는 책마다 아마존 베스트셀러에 오르는 경이로운
-                        기록을 써나가고 있는 프리다 맥파든의 신작 《더
-                        코워커》가 출간되었다. 프리다 맥파든은 2023 국제 스릴러
-                        작가상과 굿리즈 선정 ‘미스터리&스릴러 부문’을
-                        수상했으며, 전작인 《하우스메이드》는 전 세계 1,700만
-                        독자들의 선택을 받았다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>7</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book7"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">햄릿</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >윌리엄 셰익스피어 • 이진영 • 2025.04.25</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">17,820원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        완성도 높은 플롯, 개성 강하고 복합적인 캐릭터, 인간과
-                        사회에 대한 깊은 통찰이 담긴 스토리. 새롭고 고유한
-                        번역을 시도된 셰익스피어 고전 문학. 독자들은 역자에 따라
-                        이렇게 번역이 다를 수 있음을 새삼 느끼면서, 작품 속
-                        아름답고 깊은 울림을 주는 모든 독백과 속삭임 속으로
-                        빠져들 것이다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>8</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book8"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title"
-                          >popeye 매거진 5월호 (Hello Tokyo)</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        거리의 얼굴이, 또 들뜨고 설레는 것 같은 기분이 든다.
-                        요즘 도쿄를 걸으니 여기저기서 그런 생각을 하게 되었다.
-                        당연한 시점이나 기시감에서 벗어나, 쭉 다가가서 해상도를
-                        올리거나, 가벼운 시선으로 딥하게 잠수하는 그런 식으로
-                        도쿄를 퀘스트 해보자.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>9</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book9"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype1">
-                        <p>외서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p><span class="span-title">페스트</span></p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer"
-                          >아베르 키위 • 새움 • 2025.04.30</span
-                        >
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        이번 『페스트』는 이미 2023년 하드커버로 출간된
-                        『역병』의 개정 완역판이다. 제목은 『페스트』 로
-                        바뀌었지만, 단순한 표지 교체가 아닌 전면적인 번역 수정과
-                        문장 개편을 거친 완전히 새로운 작품이다. 특히 이정서
-                        번역가는 이번 작업에서 원문 문장의 구조와 리듬, 문장
-                        부호까지 살려내는 ‘구문 직역’의 방식을 일관되게
-                        유지했다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-              <div class="headline"><hr /></div>
-              <div class="first-box">
-                <div class="number">
-                  <h3>10</h3>
-                </div>
-                <div class="book-exbox">
-                  <div class="booker book10"></div>
-                  <div class="detail-explain">
-                    <div class="detail line1">
-                      <div class="catebox ctype4">
-                        <p>한국도서</p>
-                      </div>
-                      <div class="catebox ctype2">
-                        <p>종이책</p>
-                      </div>
-                      <div class="catebox ctype3">
-                        <p>eBook</p>
-                      </div>
-                    </div>
-                    <div class="detail line1-5">
-                      <p>
-                        <span class="span-title">크림의 무게를 재는 방법</span>
-                      </p>
-                    </div>
-                    <div class="detail line2">
-                      <p>
-                        <span class="writer">조시현 소설집 • 2025.03.20</span>
-                      </p>
-                    </div>
-                    <div class="detail line3">
-                      <p>
-                        <span class="percen">10%</span
-                        ><span class="price">16,200원</span>
-                      </p>
-                    </div>
-                    <div class="detail line4">
-                      <p>
-                        “너를 만나기 위해 이렇게 빚어온 몸이라면, 나는 어떤
-                        몸으로 죽게 될까” 멸망하는 우주 속 사랑이라는 환상통
-                        누군가를 그리워하기 위해 태어난 것만 같은 존재들. 한국
-                        문단의 새로운 스토리텔러 시인 조시현의 첫 소설집
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="shop-button">
-                  <div class="shop-cart">
-                    <p><a href="">카트에 담기</a></p>
-                  </div>
-                  <div class="buy-it">
-                    <p><a href="">구입하기</a></p>
-                  </div>
-                </div>
-                <div class="freeview"></div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- 온라인 카테고리 박스 스크립트 ↓ -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tabButtons = document.querySelectorAll(".tab-button");
-        const boxLists = document.querySelectorAll(".online-box-list");
+.section-heading h2 {
+  line-height: 40px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(250, 250, 250, 0.15);
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111111;
+}
 
-        tabButtons.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            // 버튼 상태 변경
-            tabButtons.forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
+/* 
+---------------------------------------------
+header
+--------------------------------------------- 
+*/
 
-            // 콘텐츠 전환
-            const category = btn.getAttribute("data-category");
-            boxLists.forEach((box) => {
-              if (box.getAttribute("data-category") === category) {
-                box.style.display = "block";
-              } else {
-                box.style.display = "none";
-              }
-            });
-          });
-        });
-      });
-    </script>
+.sub-header {
+  background-color: #1f272b;
+  position: relative;
+  z-index: 1111;
+}
 
-    <div class="footer">
-      <p>
-        (주) 우리미디어 대표이사: 김민우 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        사업등록번호 816-81-00840 <br /><br />통신판매신고번호 :
-        제2022-서울마포-2210호
-        <a
-          href="https://templatemo.com"
-          target="_parent"
-          title="free css templates"
-          >사업자정보확인</a
-        >
-        <br /><br />주소: (03994) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서울특별시
-        마포구 양화로19길 22-16
-      </p>
-    </div>
-  </body>
-</html>
+.sub-header .left-content p {
+  color: #fff;
+  padding: 8px 0px;
+  font-size: 10px;
+}
+
+.sub-header .right-icons {
+  text-align: right;
+  padding: 8px 0px;
+}
+
+.sub-header .right-icons ul li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.sub-header .right-icons ul li a {
+  color: #fff;
+  font-size: 12px;
+  transition: all 0.3s;
+}
+
+.sub-header .right-icons ul li a:hover {
+  color: #f5a425;
+}
+
+.sub-header .left-content p em {
+  font-style: normal;
+  color: #ffffff;
+}
+
+.background-header {
+  background-color: #fff !important;
+  height: 80px !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
+}
+
+.background-header .main-nav .nav li a {
+  color: #1e1e1e !important;
+}
+
+.background-header .logo,
+.background-header .main-nav .nav li a {
+  color: #1e1e1e !important;
+}
+
+.background-header .main-nav .nav li:hover a {
+  color: #fb5849 !important;
+}
+
+.background-header .nav li a.active {
+  color: #fb5849 !important;
+}
+
+.header-area {
+  background-color: rgba(250, 250, 250, 0.15);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.header-area .main-nav {
+  min-height: 80px;
+  background: transparent;
+}
+
+.header-area .main-nav .logo {
+  line-height: 100px;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  float: left;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.background-header .main-nav .logo {
+  line-height: 75px;
+}
+
+.background-header .nav {
+  margin-top: 20px !important;
+}
+
+.header-area .main-nav .nav {
+  float: right;
+  margin-top: 30px;
+  margin-right: 0px;
+  background-color: transparent;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  z-index: 999;
+}
+
+.header-area .main-nav .nav li {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header-area .main-nav .nav li:last-child {
+  padding-right: 0px;
+}
+
+.header-area .main-nav .nav li a {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000000;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  height: 40px;
+  line-height: 40px;
+  border: transparent;
+  letter-spacing: 1px;
+}
+
+.header-area .main-nav .nav li:hover a,
+.header-area .main-nav .nav li a.active {
+  color: #f5a425 !important;
+}
+
+.background-header .main-nav .nav li:hover a,
+.background-header .main-nav .nav li a.active {
+  color: #f5a425 !important;
+  opacity: 1;
+}
+
+.header-area .main-nav .nav li.has-sub {
+  position: relative;
+  padding-right: 15px;
+}
+
+.header-area .main-nav .nav li.has-sub:after {
+  font-family: FontAwesome;
+  content: "\f107";
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  right: 5px;
+  top: 12px;
+}
+
+.background-header .main-nav .nav li.has-sub:after {
+  color: #1e1e1e;
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu {
+  position: absolute;
+  width: 200px;
+  box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  top: 40px;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateY(+2em);
+  visibility: hidden;
+  z-index: -1;
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li {
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+  opacity: 1;
+  display: block;
+  background: #f7f7f7;
+  color: #2a2a2a !important;
+  padding-left: 20px;
+  height: 40px;
+  line-height: 40px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  font-size: 13px;
+  font-weight: 400;
+  border-bottom: 1px solid #eee;
+}
+
+.header-area .main-nav .nav li.has-sub ul li a:hover {
+  background: #fff;
+  color: #f5a425 !important;
+  padding-left: 25px;
+}
+
+.header-area .main-nav .nav li.has-sub ul li a:hover:before {
+  width: 3px;
+}
+
+.header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
+}
+
+.header-area .main-nav .menu-trigger {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 33px;
+  width: 32px;
+  height: 40px;
+  text-indent: -9999em;
+  z-index: 99;
+  right: 40px;
+  display: none;
+}
+
+.background-header .main-nav .menu-trigger {
+  top: 23px;
+}
+
+.header-area .main-nav .menu-trigger span,
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #1e1e1e;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+}
+
+.background-header .main-nav .menu-trigger span,
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #1e1e1e;
+}
+
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  background-color: #1e1e1e;
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  left: 0;
+  width: 75%;
+}
+
+.background-header .main-nav .menu-trigger span:before,
+.background-header .main-nav .menu-trigger span:after {
+  background-color: #1e1e1e;
+}
+
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after {
+  content: "";
+}
+
+.header-area .main-nav .menu-trigger span {
+  top: 16px;
+}
+
+.header-area .main-nav .menu-trigger span:before {
+  -moz-transform-origin: 33% 100%;
+  -ms-transform-origin: 33% 100%;
+  -webkit-transform-origin: 33% 100%;
+  transform-origin: 33% 100%;
+  top: -10px;
+  z-index: 10;
+}
+
+.header-area .main-nav .menu-trigger span:after {
+  -moz-transform-origin: 33% 0;
+  -ms-transform-origin: 33% 0;
+  -webkit-transform-origin: 33% 0;
+  transform-origin: 33% 0;
+  top: 10px;
+}
+
+.header-area .main-nav .menu-trigger.active span,
+.header-area .main-nav .menu-trigger.active span:before,
+.header-area .main-nav .menu-trigger.active span:after {
+  background-color: transparent;
+  width: 100%;
+}
+
+.header-area .main-nav .menu-trigger.active span:before {
+  -moz-transform: translateY(6px) translateX(1px) rotate(45deg);
+  -ms-transform: translateY(6px) translateX(1px) rotate(45deg);
+  -webkit-transform: translateY(6px) translateX(1px) rotate(45deg);
+  transform: translateY(6px) translateX(1px) rotate(45deg);
+  background-color: #1e1e1e;
+}
+
+.background-header .main-nav .menu-trigger.active span:before {
+  background-color: #1e1e1e;
+}
+
+.header-area .main-nav .menu-trigger.active span:after {
+  -moz-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  -ms-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  -webkit-transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  transform: translateY(-6px) translateX(1px) rotate(-45deg);
+  background-color: #1e1e1e;
+}
+
+.background-header .main-nav .menu-trigger.active span:after {
+  background-color: #1e1e1e;
+}
+
+.header-area.header-sticky {
+  min-height: 80px;
+}
+
+.header-area .nav {
+  margin-top: 30px;
+}
+
+.header-area.header-sticky .nav li a.active {
+  color: #f5a425;
+}
+
+@media (max-width: 1200px) {
+  .header-area .main-nav .nav li {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .header-area .main-nav:before {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-area .main-nav .logo {
+    color: #1e1e1e;
+  }
+  .header-area.header-sticky .nav li a:hover,
+  .header-area.header-sticky .nav li a.active {
+    color: #f5a425 !important;
+    opacity: 1;
+  }
+  .header-area.header-sticky .nav li.search-icon a {
+    width: 100%;
+  }
+  .header-area {
+    background-color: #f7f7f7;
+    padding: 0px 15px;
+    height: 100px;
+    box-shadow: none;
+    text-align: center;
+  }
+  .header-area .container {
+    padding: 0px;
+  }
+  .header-area .logo {
+    margin-left: 30px;
+  }
+  .header-area .menu-trigger {
+    display: block !important;
+  }
+  .header-area .main-nav {
+    overflow: hidden;
+  }
+  .header-area .main-nav .nav {
+    float: none;
+    width: 100%;
+    display: none;
+    -webkit-transition: all 0s ease 0s;
+    -moz-transition: all 0s ease 0s;
+    -o-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
+    margin-left: 0px;
+  }
+  .header-area .main-nav .nav li:first-child {
+    border-top: 1px solid #eee;
+  }
+  .header-area.header-sticky .nav {
+    margin-top: 100px !important;
+  }
+  .header-area .main-nav .nav li {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .header-area .main-nav .nav li a {
+    height: 50px !important;
+    line-height: 50px !important;
+    padding: 0px !important;
+    border: none !important;
+    background: #f7f7f7 !important;
+    color: #191a20 !important;
+  }
+  .header-area .main-nav .nav li a:hover {
+    background: #eee !important;
+    color: #f5a425 !important;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    position: relative;
+    visibility: inherit;
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0%);
+    top: 0px;
+    width: 100%;
+    box-shadow: none;
+    height: 0px;
+    transition: all 0s;
+  }
+  .header-area .main-nav .nav li.submenu ul li a {
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .header-area .main-nav .nav li.submenu ul li a:hover:before {
+    width: 0px;
+  }
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    height: auto;
+  }
+  .header-area .main-nav .nav li.has-sub:after {
+    color: #3b566e;
+    right: 30px;
+    font-size: 14px;
+    top: 15px;
+  }
+  .header-area .main-nav .nav li.submenu:hover ul,
+  .header-area .main-nav .nav li.submenu:focus ul {
+    height: 0px;
+  }
+}
+
+@media (min-width: 767px) {
+  .header-area .main-nav .nav {
+    display: flex !important;
+  }
+}
+
+/* 
+---------------------------------------------
+ 따라오는 팝업창
+--------------------------------------------- 
+*/
+
+#floatingBox {
+  position: absolute;
+  right: 20px;
+  top: 100px;
+  width: 100px;
+  height: 230px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: top 0.2s ease-out; /* 부드러운 이동 효과 */
+}
+#floatingBox p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.promo-image {
+  width: 80px;
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+}
+
+.promo-arrow {
+  position: absolute;
+  top: 82%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: #222222;
+  padding: 2px 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+
+.promo-left {
+  left: 0;
+}
+
+.promo-right {
+  right: 0;
+}
+
+.small-10px {
+  margin-top: 20px;
+  font-size: 10px;
+}
+.floatbox-img {
+  background: #000000;
+  width: 80px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* 
+---------------------------------------------
+main
+--------------------------------------------- 
+*/
+
+@media screen and (max-width: 767px) {
+  .main-banner .caption h6 {
+    font-weight: 500;
+  }
+
+  .main-banner .caption h2 {
+    font-size: 36px;
+  }
+}
+
+.banner-slider {
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  height: 300px;
+  overflow: hidden;
+  background-size: contain;
+}
+
+.banner-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.banner-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  border-radius: 3px;
+}
+
+.banner-prev {
+  left: 20px;
+}
+
+.banner-next {
+  right: 20px;
+}
+
+/*
+---------------------------------------------
+banner
+---------------------------------------------
+*/
+
+/* 
+---------------------------------------------
+온라인 박스
+--------------------------------------------- 
+*/
+.oline-word p {
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 17.9%;
+}
+
+.calender {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 72%;
+  margin-left: 18%;
+  padding: 20px;
+  background: #e7e7e7;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.calender p {
+  font-weight: 600;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 8.7%;
+}
+
+.tab-button {
+  background: #ffffff;
+  color: #222;
+  width: 132px;
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 7px 7px 0 0;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  border: 1px solid #000000;
+  opacity: 0.4;
+}
+
+.category-tabs .tab-button:nth-child(2) {
+  background: #ffffff;
+  color: #6579bd;
+  opacity: 0.5;
+  border: #6579bd solid 1px;
+}
+.category-tabs .tab-button:nth-child(2).active {
+  background: #ffffff;
+  color: #6579bd;
+  opacity: 1;
+  border: #6579bd solid 1px;
+  border-bottom: none;
+}
+.tab-button.active {
+  border: 1px solid #000000;
+  border-bottom: none; /* 아래쪽 선만 제거 */
+  border-radius: 7px 7px 0 0; /* 위쪽만 둥글게 */
+  color: rgb(0, 0, 0);
+  opacity: 1;
+}
+
+/*
+---------------------------------------------
+lefter
+---------------------------------------------
+*/
+
+.lefter {
+  position: absolute;
+  top: 730px;
+  left: calc((100vw - 1200px) / 2 - 130px);
+  width: 160px;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 15px 10px;
+  z-index: 100;
+}
+
+.lefter-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #141414;
+  padding-left: 8px;
+}
+
+.lefter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lefter-section {
+  font-size: 16px;
+  font-weight: 800;
+  color: #090909;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+.lefter-item {
+  margin-bottom: 6px;
+}
+
+.lefter-item a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #222;
+  display: block;
+  padding: 6px 10px;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.lefter-item a:hover {
+  background-color: #454545;
+  color: white;
+}
+
+.lefter-item a.active {
+  background-color: #454545;
+  color: white;
+}
+
+@media (max-width: 1200px) {
+  .lefter {
+    display: none;
+  }
+}
+
+/*
+---------------------------------------------
+ful-box
+---------------------------------------------
+*/
+
+.list-allbox {
+  margin: 0px 0;
+}
+
+.first-box {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 45px;
+  margin-top: 55px;
+}
+
+.shop-cart {
+  position: relative;
+}
+
+.shop-button {
+  position: relative;
+}
+
+.book-exbox {
+  display: flex;
+}
+
+.booker {
+  width: 138px; /* 172px → 138px */
+  height: 212px; /* 265px → 212px */
+  box-shadow: 0px 5px 15px rgb(172, 172, 172);
+  border-radius: 5px;
+}
+.number {
+  width: 50px;
+  height: 24px;
+  margin: auto 0;
+  margin-left: 15%;
+}
+.number h3 {
+  font-size: 18px;
+}
+.headline {
+  margin-left: 17%;
+  width: 75%;
+}
+/* ↓국내도서↓ */
+.book-exbox .book1 {
+  background: url("../img/ranking1.jpg");
+  background-size: cover;
+}
+.book-exbox .book2 {
+  background: url("../img/ranking2.jpg");
+  background-size: cover;
+}
+.book-exbox .book3 {
+  background: url("../img/ranking3.jpg");
+  background-size: cover;
+}
+.book-exbox .book4 {
+  background: url("../img/ranking4.jpg");
+  background-size: cover;
+}
+.book-exbox .book5 {
+  background: url("../img/ranking5.jpg");
+  background-size: cover;
+}
+.book-exbox .book6 {
+  background: url("../img/ranking6.jpg");
+  background-size: cover;
+}
+.book-exbox .book7 {
+  background: url("../img/ranking7.jpg");
+  background-size: contain;
+}
+.book-exbox .book8 {
+  background: url("../img/ranking8.jpg");
+  background-size: contain;
+}
+.book-exbox .book9 {
+  background: url("../img/ranking9.jpg");
+  background-size: cover;
+}
+.book-exbox .book10 {
+  background: url("../img/ranking10.jpg");
+  background-size: cover;
+}
+
+/* ↓국내도서↓ */
+.book-exbox .kbook1 {
+  background: url("../img/koera1.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook2 {
+  background: url("../img/koera2.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook3 {
+  background: url("../img/koera3.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook4 {
+  background: url("../img/koera4.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook5 {
+  background: url("../img/koera5.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook6 {
+  background: url("../img/koera6.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook7 {
+  background: url("../img/koera7.jpg");
+  background-size: contain;
+}
+.book-exbox .kbook8 {
+  background: url("../img/koera8.jpg");
+  background-size: contain;
+}
+.book-exbox .kbook9 {
+  background: url("../img/koera9.jpg");
+  background-size: cover;
+}
+.book-exbox .kbook10 {
+  background: url("../img/koera10.jpg");
+  background-size: cover;
+}
+
+.detail-explain {
+  width: 600px; /* 줄임 */
+  margin: auto 40px;
+}
+
+.line1 {
+  display: flex;
+  margin-bottom: 18px;
+}
+.catebox {
+  margin: 0 3px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5.5px;
+  align-items: center;
+}
+.catebox p {
+  color: white;
+  font-size: 10px;
+}
+.ctype1 {
+  background: #0073ad;
+  width: 40px;
+  height: 18px;
+}
+.ctype2 {
+  background: #000000;
+  width: 60px;
+  height: 18px;
+}
+.ctype3 {
+  background: #00b900;
+  width: 60px;
+  height: 18px;
+}
+.ctype4 {
+  background: #ab3629;
+  width: 60px;
+  height: 18px;
+}
+.detail {
+  margin-left: 15px;
+}
+.line1-5 {
+  margin-bottom: 0px;
+}
+.span-title {
+  font-size: 24px;
+  font-weight: 500;
+}
+.line2 {
+  margin-bottom: 8px;
+}
+.writer {
+  font-size: 12px;
+  color: #000000;
+  opacity: 0.68;
+  font-weight: 400;
+}
+
+.detail-explain .line3 {
+  margin-bottom: 12px;
+}
+.line4 p {
+  font-size: 12px;
+}
+.percen {
+  font-size: 20px;
+  font-weight: 500;
+  color: #00ad14;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+.price {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.shop-button {
+  top: 40px;
+}
+.shop-cart,
+.buy-it {
+  width: 94px;
+  height: 30px;
+  border-radius: 7px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.shop-cart p a,
+.buy-it p a {
+  color: white;
+  font-size: 10px;
+}
+.shop-cart {
+  background: #9b9b9b;
+}
+
+.buy-it {
+  background: #222222;
+}
+
+.footer {
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  padding-top: 50px;
+  margin: auto;
+}
+
+.footer p a {
+  color: black;
+  font-weight: 600;
+}
+
+.footer p {
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.footer p {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 1300px) {
+  .services .owl-nav .owl-next {
+    right: -30px;
+  }
+  .services .owl-nav .owl-prev {
+    left: -25px;
+  }
+  .our-courses .owl-nav .owl-next {
+    right: -30px;
+  }
+  .our-courses .owl-nav .owl-prev {
+    left: -25px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .services .owl-nav .owl-next {
+    right: -70px;
+  }
+  .services .owl-nav .owl-prev {
+    left: -65px;
+  }
+  .our-courses .owl-nav .owl-next {
+    right: -70px;
+  }
+  .our-courses .owl-nav .owl-prev {
+    left: -65px;
+  }
+}
+
+@media (max-width: 1085px) {
+  .services .owl-nav .owl-next {
+    right: -30px;
+  }
+  .services .owl-nav .owl-prev {
+    left: -25px;
+  }
+  .our-courses .owl-nav .owl-next {
+    right: -30px;
+  }
+  .our-courses .owl-nav .owl-prev {
+    left: -25px;
+  }
+}
+
+@media (max-width: 1005px) {
+  .services .owl-nav .owl-next {
+    display: none;
+  }
+  .services .owl-nav .owl-prev {
+    display: none;
+  }
+  .our-courses .owl-nav .owl-next {
+    display: none;
+  }
+  .our-courses .owl-nav .owl-prev {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-banner .caption {
+    top: 60%;
+  }
+
+  .main-banner .caption h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .main-banner .caption .main-button-red {
+    margin-top: 15px;
+  }
+
+  .services {
+    margin-top: 60px;
+  }
+
+  section.upcoming-meetings {
+    padding-top: 400px;
+  }
+
+  section.upcoming-meetings .categories {
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+
+  .accordions {
+    margin-left: 0px;
+  }
+
+  .new-students {
+    margin-top: 15px;
+  }
+
+  section.our-facts .video {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+
+  section.contact-us #contact {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sub-header .left-content p {
+    display: none;
+  }
+
+  .sub-header .right-icons {
+    text-align: center;
+  }
+
+  .main-nav .nav .sub-menu {
+    display: none;
+  }
+
+  .header-area .main-nav .nav li ul.sub-menu li a {
+    color: #1f272b;
+  }
+}
