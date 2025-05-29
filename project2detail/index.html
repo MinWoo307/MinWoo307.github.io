@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bootstrap/js/" />
     <link rel="stylesheet" href="css/templatemo-edu-meeting.css" />
     <link rel="stylesheet" href="css/fontawesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -55,7 +56,7 @@
         <div class="row">
           <div class="col-12">
             <nav class="main-nav">
-              <a href="index.html" class="logo"> Moonlit </a>
+              <a href="https://minwoo307.github.io/project2/" class="logo"> Moonlit </a>
               <ul class="nav">
                 <li class="scroll-to-section">
                   <a href="#top" class="active">랭킹</a>
@@ -131,15 +132,102 @@
       });
     </script>
 
+<aside class="lefter">
+  <h3 class="lefter-title">카테고리</h3>
+  <nav class="lefter-nav">
+    <ul class="lefter-list">
+      <li class="lefter-section">베스트셀러</li>
+      <li class="lefter-item"><a href="#">종합 베스트</a></li>
+      <li class="lefter-item"><a href="#">주간</a></li>
+      <li class="lefter-item"><a href="#">월간</a></li>
+      <li class="lefter-item"><a href="#">연간</a></li>
+      <hr>
+
+      <li class="lefter-section">문학 • 교재</li>
+      <li class="lefter-item"><a href="#">종합 베스트</a></li>
+      <li class="lefter-item"><a href="#">일간</a></li>
+      <li class="lefter-item"><a href="#">주간</a></li>
+      <li class="lefter-item"><a href="#">월간</a></li>
+      <hr>
+
+      <li class="lefter-section">원작 작품</li>
+      <li class="lefter-item"><a href="#">전체</a></li>
+      <li class="lefter-item"><a href="#">국내</a></li>
+      <li class="lefter-item"><a href="#">서양 • 일본</a></li>
+      <hr>
+
+      <li class="lefter-section">스테디셀러</li>
+      <li class="lefter-item"><a href="#">분야별 보기</a></li>
+    </ul>
+  </nav>
+</aside>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/custom.js"></script>
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="banner"></div>
+                 <div class="banner-slider">
+          <div class="banner-slide" style="background-image: url(img/banner.png);"></div>
+          <div class="banner-slide" style="background-image: url(img/banner2.png);"></div>
+          <div class="banner-slide" style="background-image: url(img/banner.png);"></div>
+          <div class="banner-slide" style="background-image: url(img/banner2.png);"></div>
+          <div class="banner-slide" style="background-image: url(img/banner.png);"></div>
+
+          <div class="banner-arrow banner-prev">&#10094;</div>
+          <div class="banner-arrow banner-next">&#10095;</div>
+        </div>
         </div>
       </div>
     </div>
+
+
+      <!-- 배너슬라이드 js 애니메이션 -->
+     <script>
+    $(document).ready(function () {
+      let current = 0;
+      const slides = $('.banner-slide');
+      const total = slides.length;
+      let timer;
+
+      function showSlide(index) {
+        slides.removeClass('active');
+        slides.eq(index).addClass('active');
+        current = index;
+      }
+
+      function nextSlide() {
+        const next = (current + 1) % total;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (current - 1 + total) % total;
+        showSlide(prev);
+      }
+
+      $('.banner-next').click(function () {
+        nextSlide();
+        resetTimer();
+      });
+
+      $('.banner-prev').click(function () {
+        prevSlide();
+        resetTimer();
+      });
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(nextSlide, 7000);
+      }
+
+      // 초기 실행
+      showSlide(0);
+      timer = setInterval(nextSlide, 7000);
+    });
+  </script>
+
+  
 
     <div class="container">
       <div class="row">
